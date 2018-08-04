@@ -1,0 +1,27 @@
+*.class
+
+# Maven
+/target
+*/META-INF/*
+
+# Packaged files #
+*.jar
+*.war
+*.ear
+
+# Eclipse
+.settings/
+*.project
+*.classpath
+.prefs
+*.prefs
+.metadata/
+
+# Intellij
+.idea/
+*.iml
+**/*.iml
+*.iws
+
+# Mac
+.DS_Store
