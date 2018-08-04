@@ -1,0 +1,15 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+  - master
+
+script: mvn clean package
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
