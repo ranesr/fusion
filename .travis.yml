@@ -5,7 +5,7 @@ env:
 jdk:
   - oraclejdk8
 script:
-  - ./gradlew build violationCommentsToGitHub -DGITHUB_PULLREQUESTID=$TRAVIS_PULL_REQUEST -DGITHUB_OAUTH2TOKEN=$GITHUB_OAUTH2TOKEN -i --stacktrace
+  - gradle check --warning-mode=all
   - mvn clean package
 notifications:
   email:

@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <lombok.version>1.18.0</lombok.version>
+        <lombok.version>1.16.20</lombok.version>
         <jackson.verison>2.9.5</jackson.verison>
         <spring.framework.version>5.0.7.RELEASE</spring.framework.version>
         <commons.version>3.7</commons.version>
