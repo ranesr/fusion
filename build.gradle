@@ -1,4 +1,27 @@
-task assemble{}
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.github.ranesr'
+version = '0.0.1-SNAPSHOT'
+
+description = """Yelp Java SDK"""
+
+sourceCompatibility = 8
+targetCompatibility = 8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version:'1.18.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.9.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.9.5'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.0.7.RELEASE'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.7'
+}
 
 buildscript {
     repositories {
@@ -22,8 +45,8 @@ task violationCommentsToGitHub(type: se.bjurr.violations.comments.github.plugin.
     createCommentWithAllSingleFileComments = false
     createSingleFileComments = true
     violations = [
-        ["FINDBUGS",   ".", ".*/findbugs/.*\\.xml\$"],
-        ["PMD",        ".", ".*/pmd/.*\\.xml\$"],
-        ["CHECKSTYLE", ".", ".*/checkstyle/.*\\.xml\$"]
+            ["FINDBUGS",   ".", ".*/findbugs/.*\\.xml\$"],
+            ["PMD",        ".", ".*/pmd/.*\\.xml\$"],
+            ["CHECKSTYLE", ".", ".*/checkstyle/.*\\.xml\$"]
     ]
 }

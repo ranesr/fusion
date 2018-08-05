@@ -25,3 +25,6 @@
 
 # Mac
 .DS_Store
+
+# Gradle
+.gradle/
