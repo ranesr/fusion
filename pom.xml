@@ -10,6 +10,8 @@
     <name>Yelp Java SDK</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <lombok.version>1.18.0</lombok.version>
         <jackson.verison>2.9.5</jackson.verison>
         <spring.framework.version>5.0.7.RELEASE</spring.framework.version>
