@@ -24,3 +24,13 @@ dependencies {
     compile 'org.springframework:spring-web:5.0.7.RELEASE'
     compile 'org.apache.commons:commons-lang3:3.7'
 }
+checkstyle {
+    toolVersion '8.11'
+    configFile file("config/checkstyle/checkstyle.xml")
+}
+checkstyleMain {
+    source ='src/main/java'
+}
+checkstyleTest {
+    source ='src/test/java'
+}

@@ -5,7 +5,7 @@ env:
 jdk:
   - oraclejdk8
 script:
-  - gradle check --warning-mode=all
+  - ./gradlew build
   - mvn clean package
 notifications:
   email:
