@@ -1,14 +1,14 @@
+sudo: true
 language: java
-
+env:
+  secure: "XDE7OoAsd7jd6WG2Esh2jQAooGawe3APFv102x4Rh3TcFvYYvyaIebiC0laCCf8QXgRsgDGkBPpJkvxfwNEgUlbIPuxhjF/YZIyvx7Hk+XStEcJ0I8hFDcq0o4/L2477gfwtDwyhrsvDu5RabpfPlwvTrfQBeolf/maEa3WO8BhqHo8TpVHZlaeTeam25cFuaeRoOQDS9zAzm27VYGM/T4oumGi9h+YX6lTRbLIv52XY6W4isgiwDVMTXSCqmzayojN8QiDD8t4TsGsn8O784nhav6nEAJYofcRSvgHNH/HVlJ20lRxodIq/2AlzUltho0Ntvo1787dWHlcfLnxCj1GEfTIK39AATjjNkTb7yBQpJOiqw5djqg1Kwzeq09C61/Jdfdm1WgM66Xq5PYemZZ6FnNhIGuOxY+dG0X2tffg7UpIYEKKtqgI870bVEEnEIxluzwJ+hygVEc2/3BPyIOGQbfwxfWlcwNVDWtVXKEI+7FCcWQ3vyeGpXBGkoBaXfaBd1oCRKGBeGHW1XJCYO1/cvwzz3ZcnvZF0qbCI231ZK+uLwFTTHLB4C9u1vwZJxiRJtxB/J8OumwJY2QoeMQTkC/983+x89X3KhxgQ0PkyjtqVXkarEX9/cyxX0d8Yd7cBpR+Fbtls8tqF/EL2uVHNo2KJjcfEKPnmBz+Jv88="
 jdk:
   - oraclejdk8
-
-branches:
-  only:
-  - master
-
-script: mvn clean package
-
+before_install:
+  - sudo apt-get install cppcheck
+script:
+  - ./gradlew build violationCommentsToGitHub -DGITHUB_PULLREQUESTID=$TRAVIS_PULL_REQUEST -DGITHUB_OAUTH2TOKEN=$GITHUB_OAUTH2TOKEN -i --stacktrace
+  - mvn clean package
 notifications:
   email:
     on_success: never
