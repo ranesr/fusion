@@ -22,6 +22,7 @@
 
 package com.yelp.model.parameters;
 
+import com.yelp.services.YelpApi;
 import lombok.Data;
 
 import com.yelp.exception.InvalidParameterException;
@@ -48,7 +49,7 @@ public class BusinessMatchesParameters implements Parameters {
     private Integer limit;
     private String matchThreshold;
 
-    public String getParameters() throws Exception {
+    public String getParameters() throws NullParameterException, InvalidParameterException {
         StringBuilder builder = new StringBuilder("?");
 
         if (StringUtils.isBlank(name)) {
@@ -86,7 +87,7 @@ public class BusinessMatchesParameters implements Parameters {
         if (latitude != null) {
             if (latitude < -90 || latitude > 90) {
                 throw new InvalidParameterException("Please input the correct parameter value for latitude in " +
-                        "/businesses/matches endpoint.");
+                        YelpApi.BUSINESSES_MATCHES_ENDPOINT + " endpoint.");
             }
             builder.append("&latitude=").append(latitude);
         }
@@ -94,7 +95,7 @@ public class BusinessMatchesParameters implements Parameters {
         if (longitude != null) {
             if (longitude < -180 || longitude > 180) {
                 throw new InvalidParameterException("Please input the correct parameter value for longitude in " +
-                        "/businesses/matches endpoint.");
+                        YelpApi.BUSINESSES_MATCHES_ENDPOINT + " endpoint.");
             }
             builder.append("&longitude=").append(longitude);
         }
@@ -114,7 +115,7 @@ public class BusinessMatchesParameters implements Parameters {
         if (limit != null) {
             if (limit > 10) {
                 throw new InvalidParameterException("Please input the correct parameter value for limit in " +
-                        "/businesses/matches endpoint.");
+                        YelpApi.BUSINESSES_MATCHES_ENDPOINT + " endpoint.");
             }
             builder.append("&limit=").append(limit);
         }

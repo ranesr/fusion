@@ -33,12 +33,12 @@ public class AutoCompleteParameters implements Parameters {
     private Double longitude;
     private Locale locale;
 
-    public String getParameters() throws Exception {
-        StringBuilder builder = new StringBuilder();
+    public String getParameters() throws NullParameterException {
+        StringBuilder builder = new StringBuilder("?");
         if (text == null) {
             throw new NullParameterException("text cannot be null for /autocomplete endpoint.");
         }
-        builder.append("&text=").append(text);
+        builder.append("text=").append(text);
 
         if (latitude != null) {
             builder.append("&latitude=").append(String.valueOf(latitude));

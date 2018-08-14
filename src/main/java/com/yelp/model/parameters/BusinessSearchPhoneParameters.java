@@ -24,6 +24,7 @@ package com.yelp.model.parameters;
 
 import com.yelp.exception.NullParameterException;
 
+import com.yelp.services.YelpApi;
 import lombok.Data;
 
 import org.apache.commons.lang3.StringUtils;
@@ -33,11 +34,12 @@ public class BusinessSearchPhoneParameters implements Parameters {
     private String phone;
 
     @Override
-    public String getParameters() throws Exception {
+    public String getParameters() throws NullParameterException {
         StringBuilder builder = new StringBuilder("?");
 
         if (StringUtils.isBlank(phone)) {
-            throw new NullParameterException("Phone cannot be null for /businesses/search/phone endpoint.");
+            throw new NullParameterException("Phone cannot be null for " + YelpApi.BUSINESSES_SEARCH_PHONE_ENDPOINT
+                    + " endpoint.");
         }
         builder.append("phone=").append(phone);
 

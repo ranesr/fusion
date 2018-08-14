@@ -48,7 +48,7 @@ public class BusinessSearchParameters implements Parameters {
     private Integer openAt;
     private List<Attribute> attributes;
 
-    public String getParameters() throws Exception {
+    public String getParameters() throws NullParameterException, InvalidParameterException {
         StringBuilder builder = new StringBuilder("?");
 
         if (!StringUtils.isBlank(term)) {

@@ -22,10 +22,13 @@
 
 package com.yelp.model.parameters;
 
+import com.yelp.exception.InvalidParameterException;
+import com.yelp.exception.NullParameterException;
+
 import java.util.List;
 
 public interface Parameters {
-    String getParameters() throws Exception;
+    String getParameters() throws NullParameterException, InvalidParameterException;
 
     default <E> String getParameterValues(List<E> list) {
         StringBuilder builder = new StringBuilder();
