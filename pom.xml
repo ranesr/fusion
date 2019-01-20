@@ -13,9 +13,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <lombok.version>1.16.20</lombok.version>
-        <jackson.verison>2.9.5</jackson.verison>
+        <jackson.verison>2.9.8</jackson.verison>
         <spring.framework.version>5.0.7.RELEASE</spring.framework.version>
         <commons.version>3.7</commons.version>
+        <testng.version>7.0.0-beta3</testng.version>
+        <mockito.version>1.10.19</mockito.version>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
     </properties>
 
@@ -48,6 +50,18 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
         </dependency>
     </dependencies>
 
